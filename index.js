@@ -1,20 +1,13 @@
 // Import lit-html functions
 import {html, render} from 'lit-html';
-let time = '12';
 
-const myTemplate = (name) => {
+const myTemplate = (name, time) => {
   return html`
-     ${time === '12'? html` Buenos días `: html` buenas noches` }
-  
+     ${time === '12'? html` Buenos días ${name} <button`: html` buenas noches ${name}` }
   `;
 }
 
-const changeTime = () =>{
-  time  = time === '12' ? '24' : '12';
-}
-  
 
-render(myTemplate('lit-html'), document.body.querySelector('section')
+render(myTemplate('lit-html','24'), document.body.querySelector('section')
 );
-
 
