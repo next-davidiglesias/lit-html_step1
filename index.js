@@ -1,18 +1,20 @@
 // Import lit-html functions
 import {html, render} from 'lit-html';
+let time = '12';
 
-const myTemplate = (name) => 
-   html`<div>Hello ${name}</div>`;
+const myTemplate = (name) => {
+  return html`
+     ${time === '12'? html` Buenos días `: html` buenas noches` }
+  
+  `;
+}
 
-const myHeader = () => html `<h1> Hi I'm a header </h1>`;
-
-const myFooter = (name) => html `<p> Hi I'm a footer for ${name} </p>`;
-
-render(myHeader(), document.body.querySelector('header')
-);
+const changeTime = () =>{
+  time  = time === '12' ? '24' : '12';
+}
+  
 
 render(myTemplate('lit-html'), document.body.querySelector('section')
 );
 
-render(myFooter('lit-html'), document.body.querySelector('footer')
-);
+
